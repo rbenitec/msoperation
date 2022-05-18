@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: service-operation
+
+  cloud:
+    config:
+      uri: http://192.168.18.11:8090
+  profiles:
+    active: dev
+eureka.client.health-check.enable: true
