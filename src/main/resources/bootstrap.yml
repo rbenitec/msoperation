@@ -1,10 +1,28 @@
 spring:
   application:
     name: service-operation
-
   cloud:
     config:
       uri: http://192.168.18.11:8090
   profiles:
     active: dev
+  kafka:
+    bootstrap-server: localhost:9092
+    consumer:
+      group-id: transaction-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+assurance-api:
+  base-url: http://192.168.18.11:8082
 eureka.client.health-check.enable: true
+kafka:
+  subscribed-topic:
+    name: transaction-request
+  topic-to-publish:
+    name: transaction-response
